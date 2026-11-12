@@ -23,7 +23,13 @@ public class GroundStationServer {
 
         satelliteManager = new SatelliteManager();
         commandHandler = new CommandHandler(satelliteManager);
+        Thread udpReceiverThread = new Thread(
+                () -> UDPReceiver.main(new String[0])
+        );
 
+        udpReceiverThread.setName("UDP-Receiver");
+        udpReceiverThread.setDaemon(true);
+        udpReceiverThread.start();
         try {
 
             serverSocket = new ServerSocket(TCP_PORT);
