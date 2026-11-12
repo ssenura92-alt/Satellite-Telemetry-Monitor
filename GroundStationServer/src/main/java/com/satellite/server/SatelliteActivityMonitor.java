@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class SatelliteManager {
+public class SatelliteActivityMonitor {
 
     // Satellite offline timeout = 5 seconds
     private static final long TIMEOUT = 5000;
@@ -43,7 +43,7 @@ public class SatelliteManager {
         started = true;
 
         scheduler.scheduleAtFixedRate(
-                SatelliteManager::checkOffline,
+                SatelliteActivityMonitor::checkOffline,
                 1,
                 1,
                 TimeUnit.SECONDS

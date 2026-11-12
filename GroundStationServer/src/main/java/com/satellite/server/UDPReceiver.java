@@ -14,7 +14,7 @@ public class UDPReceiver {
 
             System.out.println("Ground Station UDP Receiver Started!");
             System.out.println("Listening on port: " + port);
-            SatelliteManager.start();
+            SatelliteActivityMonitor.start();
 
             while (true) {
 
